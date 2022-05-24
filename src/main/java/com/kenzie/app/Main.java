@@ -3,10 +3,12 @@ package com.kenzie.app;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 
 public class Main {
     /*********************************/
     /* Using Dynamic Arrays          */
+
     /*********************************/
 
     // Complete the Following Exercises
@@ -19,15 +21,19 @@ public class Main {
         // Create a new ArrayList instance
         // Add each of the foods to the list
         // Then return it
-
-        return null;
+        ArrayList<String> foodList = new ArrayList<String>();
+        foodList.add(food1);
+        foodList.add(food2);
+        foodList.add(food3);
+        foodList.add(food4);
+        return foodList;
     }
 
     // Exercise Two -------------------------------------------------------------------
-    public static int findTheSizeOfArrayList(ArrayList<String> favoriteFood){
+    public static int findTheSizeOfArrayList(ArrayList<String> favoriteFood) {
         // Find the size of favoriteFood using the pre-defined method in Java
         // Return the size
-        return 0;
+        return favoriteFood.size();
     }
 
     // Exercise Three -------------------------------------------------------------------
@@ -35,19 +41,33 @@ public class Main {
     public static String accessTheElementAtParticularIndex(
             ArrayList<String> favoriteFood,
             int index
-    ){
+    ) {
         // Access the element at a particular index using the pre-defined method in Java
         // Return the element
 
-        return "";
+        return favoriteFood.get(index);
     }
 
     // Exercise Four -------------------------------------------------------------------
     public static int countNumOfCakes(ArrayList<String> favoriteFood) {
         // Iterate through favoriteFood and count the number of times you find the String "Cake"
         // Return the number of occurrences
+//        int count = 0;
+//        for(String food : favoriteFood){
+//            if(food.equals("Cake")){
+//                count++;
+//            }
+//        }
+//        return count;
 
-        return 0;
+        Iterator it = favoriteFood.iterator();
+        int count = 0;
+        while (it.hasNext()) {
+            if (it.next().equals("Cake")) {
+                count++;
+            }
+        }
+        return count;
     }
 
     // Exercise Five -------------------------------------------------------------------
@@ -56,34 +76,39 @@ public class Main {
             ArrayList<String> favoriteFood,
             int index,
             String replacementValue
-    ){
+    ) {
         // Replace the element at index with the replacementValue
+        favoriteFood.set(index, replacementValue);
 
     }
 
     // Exercise Six -------------------------------------------------------------------
-    public static void sortTheArrayList(ArrayList<String> favoriteFood){
+    public static void sortTheArrayList(ArrayList<String> favoriteFood) {
         // Sort favoriteFood alphabetically
         // The favoriteFood ArrayList can be changed by reference from the parameter
         // No need to return favoriteFood
         // Hint: Don't use the ArrayList sort method, there is an easier one inside Collections
         // Google around to find it.
+        Collections.sort(favoriteFood);
     }
 
     // Exercise Seven -------------------------------------------------------------------
-    public static String[] convertArrayListToStringArray(ArrayList<String> favoriteFood){
+    public static String[] convertArrayListToStringArray(ArrayList<String> favoriteFood) {
         // Convert the ArrayList to a String[] array
         // Return the new String[] array
-        return null;
+        String[] favFood = new String[favoriteFood.size()];
+        favFood = favoriteFood.toArray(favFood);
+        return favFood;
     }
 
     // Exercise Eight -------------------------------------------------------------------
-    public static ArrayList<String> convertStringArrayToArrayList(String[] inputStrings){
+    public static ArrayList<String> convertStringArrayToArrayList(String[] inputStrings) {
         // Convert inputStrings to an ArrayList
-        // Return the ArrayList
-        return null;
+        // Return, the ArrayList
+        ArrayList<String> stringArrayList = new ArrayList<>(Arrays.asList(inputStrings));
+        return stringArrayList;
     }
-    
+
     public static void main(String[] args) {
         // You do not need to modify anything in this method.
         // Just write your code above, then verify your answers in the console output.
