@@ -52,21 +52,9 @@ public class Main {
     public static int countNumOfCakes(ArrayList<String> favoriteFood) {
         // Iterate through favoriteFood and count the number of times you find the String "Cake"
         // Return the number of occurrences
-//        int count = 0;
-//        for(String food : favoriteFood){
-//            if(food.equals("Cake")){
-//                count++;
-//            }
-//        }
-//        return count;
 
-        Iterator it = favoriteFood.iterator();
-        int count = 0;
-        while (it.hasNext()) {
-            if (it.next().equals("Cake")) {
-                count++;
-            }
-        }
+        int count = Collections.frequency(favoriteFood, "Cake");
+
         return count;
     }
 
